@@ -1,9 +1,11 @@
 include <threads.scad>
 
 module tap() {
-    //metric_thread (diameter=5, pitch=0.8, length=17, internal=true) ;
-    //cylinder(h=17, d=5);
-    english_thread(diameter=3/16, threads_per_inch=24, length=2/3, internal=true);
+    scale([1.1,1.1,1.1]){
+        //metric_thread (diameter=5, pitch=0.8, length=17, internal=true) ;
+        //cylinder(h=17, d=5);
+        english_thread(diameter=3/16, threads_per_inch=24, length=2/3, internal=true);
+    };
 };
 
 union(){
