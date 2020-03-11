@@ -1,10 +1,10 @@
 include <BOSL/constants.scad>
 use <BOSL/shapes.scad>
 
-module brace(l=160, w=15, h=5,slot_width=0, rail = 20, rail_slot=5){
+module brace(l=160, w=15, h=5, slot_width=0, rail = 20, rail_hole_d=4.2){
     difference() {
         /// Compute Parameters:
-        hole_d = rail_slot + 0.5;
+        hole_d = rail_hole_d;
         
         slot_height = h + 1;
         
@@ -23,7 +23,7 @@ module brace(l=160, w=15, h=5,slot_width=0, rail = 20, rail_slot=5){
         s2p2 = [ l - slot1_start, w/2, h/2 ];
         
         /// Shapes:
-        cuboid([l,w,h],p1=[0,0,0], fillet=hole_d, edges=EDGES_Z_ALL);
+        cuboid([l,w,h],p1=[0,0,0], fillet=w/4, edges=EDGES_Z_ALL);
         
         slot(s1p1, s1p2, r=slot_radius, h=slot_height);
         slot(s2p1, s2p2, r=slot_radius, h=slot_height);
